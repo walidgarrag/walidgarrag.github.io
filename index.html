@@ -18,7 +18,6 @@ body{
   color:white;
 }
 
-/* NAV */
 nav{
   position:fixed;
   top:0;
@@ -33,10 +32,7 @@ nav{
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-nav strong{
-  font-size:18px;
-  letter-spacing:.5px;
-}
+nav strong{font-size:18px;letter-spacing:.5px;}
 
 nav a{
   color:#d4d4d8;
@@ -48,7 +44,6 @@ nav a{
 
 nav a:hover{color:#a78bfa;}
 
-/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -57,6 +52,16 @@ nav a:hover{color:#a78bfa;}
   flex-direction:column;
   text-align:center;
   padding:0 20px;
+}
+
+.profile{
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:25px;
+  border:4px solid #8b5cf6;
+  box-shadow:0 0 45px #8b5cf6;
 }
 
 .hero h1{
@@ -86,7 +91,6 @@ nav a:hover{color:#a78bfa;}
   background:linear-gradient(90deg,#8b5cf6,#06b6d4,#22c55e);
 }
 
-/* SECTIONS */
 section{
   padding:90px 8%;
   max-width:1300px;
@@ -104,7 +108,6 @@ section p{
   line-height:1.7;
 }
 
-/* ABOUT */
 .about-box{
   background:rgba(255,255,255,.06);
   border:1px solid rgba(255,255,255,.1);
@@ -115,7 +118,6 @@ section p{
   box-shadow:0 20px 45px rgba(0,0,0,.25);
 }
 
-/* SKILLS */
 .skills-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
@@ -177,7 +179,6 @@ section p{
 .skill-card:nth-child(28){background:linear-gradient(45deg,#0b7285,#087f5b);}
 .skill-card:nth-child(29){background:linear-gradient(45deg,#4263eb,#7048e8);}
 
-/* PROJECTS */
 .projects-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
@@ -271,7 +272,6 @@ section p{
   font-weight:800;
 }
 
-/* TIMELINE */
 .timeline{
   position:relative;
   max-width:950px;
@@ -330,7 +330,6 @@ section p{
   margin:8px 0;
 }
 
-/* EXPERIENCE */
 .exp-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -350,7 +349,6 @@ section p{
   border-color:#06b6d4;
 }
 
-/* CONTACT */
 .contact-box{
   max-width:650px;
   margin:auto;
@@ -373,7 +371,6 @@ section p{
   transform:translateX(8px);
 }
 
-/* FOOTER */
 footer{
   text-align:center;
   padding:35px;
@@ -381,7 +378,6 @@ footer{
   border-top:1px solid rgba(255,255,255,.08);
 }
 
-/* MOBILE */
 @media(max-width:768px){
   nav{
     flex-direction:column;
@@ -407,6 +403,11 @@ footer{
 
   .hero p{
     font-size:16px;
+  }
+
+  .profile{
+    width:135px;
+    height:135px;
   }
 
   section{
@@ -435,6 +436,7 @@ footer{
 </nav>
 
 <div class="hero">
+  <img src="photo.png" alt="Photo de Walid Garrag" class="profile">
   <h1>Walid <span>Garrag</span></h1>
   <p>Data • Software • Fullstack Developer</p>
 </div>
@@ -499,12 +501,12 @@ footer{
     <div class="project-card">
       <div class="project-image gradient-1"></div>
       <div class="project-content">
-        <h3>Analyse & Prédiction de Risques Documentaires</h3>
+        <h3>Projet IA — Assistant de recherche documentaire</h3>
         <p>
-          Pipeline ETL avec PostgreSQL, modèle Random Forest, dashboard Power BI et chatbot Streamlit permettant d’interroger les données via SQL.
+          Assistant intelligent orienté recherche documentaire, avec traitement de données, analyse et interaction utilisateur.
         </p>
-        <p><strong>Tech stack:</strong> Python, Pandas, Scikit-learn, PostgreSQL, Streamlit, Power BI,Excel,PgAdmin</p>
-        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+        <p><strong>Tech stack:</strong> Python, IA, traitement de données</p>
+        <a href="https://github.com/walidgarrag/-Projet-IA-Assistant-de-recherche-documentaire" target="_blank">💻 GitHub</a>
       </div>
     </div>
 
@@ -515,8 +517,8 @@ footer{
         <p>
           Application web full-stack permettant de gérer les réservations d’un restaurant avec interface dynamique et logique métier côté serveur.
         </p>
-        <p><strong>Tech stack:</strong> PHP, MySQL, HTML, CSS, JavaScript , XAMPP, PHPMYadmin</p>
-        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+        <p><strong>Tech stack:</strong> PHP, MySQL, HTML, CSS, JavaScript</p>
+        <a href="https://github.com/walidgarrag/Gestionnaire-de-reservation-d-un-restaurant" target="_blank">💻 GitHub</a>
       </div>
     </div>
 
@@ -527,44 +529,44 @@ footer{
         <p>
           Application Java développée avec NetBeans selon le pattern MVC, avec gestion de panier, modélisation UML et tests unitaires.
         </p>
-        <p><strong>Tech stack:</strong> Java, MVC, JUnit, Mockito, UML, Git , Jacoco, Test fonctionnel , test d'integration</p>
-        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+        <p><strong>Tech stack:</strong> Java, MVC, JUnit, Mockito, UML, Git</p>
+        <a href="https://github.com/walidgarrag/Boutique-de-Fruit-MVC" target="_blank">💻 GitHub</a>
       </div>
     </div>
 
     <div class="project-card">
       <div class="project-image gradient-4"></div>
       <div class="project-content">
-        <h3>Jeu Réseau “6 qui prend”</h3>
+        <h3>Jeu Réseau “6 Qui Prend”</h3>
         <p>
           Application client-serveur en C avec sockets TCP, gestion multi-clients, threads et synchronisation des échanges réseau.
         </p>
-        <p><strong>Tech stack:</strong> C, Sockets TCP, Threads, Client-Serveur,bash </p>
-        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+        <p><strong>Tech stack:</strong> C, Sockets TCP, Threads, Client-Serveur</p>
+        <a href="https://github.com/walidgarrag/Jeu-6-Qui-Prend" target="_blank">💻 GitHub</a>
       </div>
     </div>
 
     <div class="project-card">
       <div class="project-image gradient-5"></div>
       <div class="project-content">
-        <h3>Graphes en C++</h3>
+        <h3>Algorithmes de Graphes</h3>
         <p>
           Implémentation d’algorithmes sur les graphes : structures, parcours, logique algorithmique et résolution de problèmes.
         </p>
-        <p><strong>Tech stack:</strong> C++,coloration graphes, Graphes, Algorithmique</p>
-        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+        <p><strong>Tech stack:</strong> C++, STL, Graphes, Algorithmique</p>
+        <a href="https://github.com/walidgarrag/Algorithme-des-Graphes" target="_blank">💻 GitHub</a>
       </div>
     </div>
 
     <div class="project-card">
       <div class="project-image gradient-6"></div>
       <div class="project-content">
-        <h3>Pikachu OpenGL</h3>
+        <h3>Pikachu 3D OpenGL</h3>
         <p>
           Projet graphique utilisant OpenGL pour le rendu d’un personnage, avec manipulation des primitives et transformations graphiques.
         </p>
-        <p><strong>Tech stack:</strong> OpenGL, C/C++, Graphisme 3D, Code:Block</p>
-        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+        <p><strong>Tech stack:</strong> OpenGL, C/C++, Graphisme 2D/3D</p>
+        <a href="https://github.com/walidgarrag/Pikatchu-3D-openGl" target="_blank">💻 GitHub</a>
       </div>
     </div>
 
@@ -575,8 +577,8 @@ footer{
         <p>
           Projet orienté traitement du signal permettant d’étudier, transformer et analyser des signaux à l’aide de la transformée de Fourier.
         </p>
-        <p><strong>Tech stack:</strong> Matlab</p>
-        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+        <p><strong>Tech stack:</strong> Python, NumPy, Signal Processing</p>
+        <a href="https://github.com/walidgarrag/Transform-e-de-Fourier" target="_blank">💻 GitHub</a>
       </div>
     </div>
 
