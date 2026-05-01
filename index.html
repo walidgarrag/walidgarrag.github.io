@@ -3,300 +3,665 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Walid Garrag</title>
+<title>Walid Garrag - Portfolio</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
 body{
-  font-family:Segoe UI;
-  background:#07070d;
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:
+    radial-gradient(circle at top left,#7c3aed35,transparent 35%),
+    radial-gradient(circle at bottom right,#06b6d435,transparent 35%),
+    #07070d;
   color:white;
 }
 
 /* NAV */
 nav{
   position:fixed;
+  top:0;
   width:100%;
   display:flex;
   justify-content:space-between;
-  padding:20px 8%;
-  background:#07070dcc;
-  backdrop-filter:blur(10px);
+  align-items:center;
+  padding:18px 8%;
+  background:rgba(7,7,13,.75);
+  backdrop-filter:blur(14px);
   z-index:1000;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+nav strong{
+  font-size:18px;
+  letter-spacing:.5px;
 }
 
 nav a{
-  color:#aaa;
+  color:#d4d4d8;
   margin:0 12px;
   text-decoration:none;
+  font-size:14px;
+  transition:.3s;
 }
 
-nav a:hover{color:#8b5cf6;}
+nav a:hover{color:#a78bfa;}
 
 /* HERO */
 .hero{
-  height:100vh;
+  min-height:100vh;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   flex-direction:column;
+  text-align:center;
+  padding:0 20px;
 }
 
 .hero h1{
-  font-size:70px;
+  font-size:72px;
+  font-weight:900;
+  letter-spacing:-2px;
 }
 
 .hero span{
-  background:linear-gradient(90deg,#8b5cf6,#06b6d4);
+  background:linear-gradient(90deg,#8b5cf6,#06b6d4,#22c55e);
   -webkit-background-clip:text;
   color:transparent;
 }
 
+.hero p{
+  color:#c4c4cc;
+  margin-top:15px;
+  font-size:20px;
+}
+
+.hero::after{
+  content:"";
+  margin-top:35px;
+  width:160px;
+  height:4px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#8b5cf6,#06b6d4,#22c55e);
+}
+
 /* SECTIONS */
 section{
-  padding:80px 8%;
+  padding:90px 8%;
+  max-width:1300px;
+  margin:auto;
 }
 
-h2{
+section h2{
+  font-size:38px;
+  margin-bottom:35px;
   text-align:center;
-  margin-bottom:40px;
 }
 
-/* SKILLS PREMIUM */
+section p{
+  color:#d4d4d8;
+  line-height:1.7;
+}
+
+/* ABOUT */
+.about-box{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:24px;
+  padding:32px;
+  max-width:900px;
+  margin:auto;
+  box-shadow:0 20px 45px rgba(0,0,0,.25);
+}
+
+/* SKILLS */
 .skills-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:22px;
 }
 
-.skill{
-  background:rgba(255,255,255,0.05);
-  border-radius:20px;
-  padding:25px;
-  border:1px solid rgba(255,255,255,0.1);
-  transition:0.3s;
+.skill-card{
+  position:relative;
+  overflow:hidden;
+  min-height:120px;
+  padding:26px;
+  border-radius:24px;
+  font-weight:800;
+  font-size:17px;
+  color:white;
+  box-shadow:0 15px 35px rgba(0,0,0,.35);
+  transition:.35s;
 }
 
-.skill:hover{
-  transform:translateY(-10px);
-  border-color:#8b5cf6;
+.skill-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.32),transparent);
+  transform:translateX(-100%);
+  transition:.6s;
 }
 
-.skill h3{
-  margin-bottom:10px;
-}
+.skill-card:hover::before{transform:translateX(100%);}
+.skill-card:hover{transform:translateY(-10px) scale(1.03);}
 
-.bar{
-  height:6px;
-  background:#222;
-  border-radius:10px;
-  margin-top:10px;
-}
-
-.bar span{
-  display:block;
-  height:100%;
-  background:linear-gradient(90deg,#8b5cf6,#06b6d4);
-  border-radius:10px;
-}
+.skill-card:nth-child(1){background:linear-gradient(45deg,#ff6b6b,#f06595);}
+.skill-card:nth-child(2){background:linear-gradient(45deg,#fcc419,#f76707);}
+.skill-card:nth-child(3){background:linear-gradient(45deg,#339af0,#5c7cfa);}
+.skill-card:nth-child(4){background:linear-gradient(45deg,#845ef7,#5f3dc4);}
+.skill-card:nth-child(5){background:linear-gradient(45deg,#20c997,#099268);}
+.skill-card:nth-child(6){background:linear-gradient(45deg,#f06595,#d6336c);}
+.skill-card:nth-child(7){background:linear-gradient(45deg,#22b8cf,#1098ad);}
+.skill-card:nth-child(8){background:linear-gradient(45deg,#51cf66,#2f9e44);}
+.skill-card:nth-child(9){background:linear-gradient(45deg,#ff8787,#fa5252);}
+.skill-card:nth-child(10){background:linear-gradient(45deg,#cc5de8,#ae3ec9);}
+.skill-card:nth-child(11){background:linear-gradient(45deg,#12b886,#087f5b);}
+.skill-card:nth-child(12){background:linear-gradient(45deg,#ffa94d,#e8590c);}
+.skill-card:nth-child(13){background:linear-gradient(45deg,#868e96,#495057);}
+.skill-card:nth-child(14){background:linear-gradient(45deg,#7048e8,#3b5bdb);}
+.skill-card:nth-child(15){background:linear-gradient(45deg,#15aabf,#0b7285);}
+.skill-card:nth-child(16){background:linear-gradient(45deg,#fab005,#e67700);}
+.skill-card:nth-child(17){background:linear-gradient(45deg,#be4bdb,#862e9c);}
+.skill-card:nth-child(18){background:linear-gradient(45deg,#0ca678,#087f5b);}
+.skill-card:nth-child(19){background:linear-gradient(45deg,#495057,#212529);}
+.skill-card:nth-child(20){background:linear-gradient(45deg,#e8590c,#d9480f);}
+.skill-card:nth-child(21){background:linear-gradient(45deg,#1971c2,#1864ab);}
+.skill-card:nth-child(22){background:linear-gradient(45deg,#2f9e44,#087f5b);}
+.skill-card:nth-child(23){background:linear-gradient(45deg,#6741d9,#3b5bdb);}
+.skill-card:nth-child(24){background:linear-gradient(45deg,#c92a2a,#a61e4d);}
+.skill-card:nth-child(25){background:linear-gradient(45deg,#5c940d,#2b8a3e);}
+.skill-card:nth-child(26){background:linear-gradient(45deg,#364fc7,#1098ad);}
+.skill-card:nth-child(27){background:linear-gradient(45deg,#f08c00,#e67700);}
+.skill-card:nth-child(28){background:linear-gradient(45deg,#0b7285,#087f5b);}
+.skill-card:nth-child(29){background:linear-gradient(45deg,#4263eb,#7048e8);}
 
 /* PROJECTS */
-.grid{
+.projects-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+  gap:30px;
 }
 
-.card{
-  background:#111;
-  padding:20px;
-  border-radius:15px;
+.project-card{
+  background:rgba(22,18,45,.78);
+  border:1px solid rgba(167,139,250,.25);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 20px 45px rgba(0,0,0,.35);
+  transition:.35s;
 }
 
-.card:hover{background:#1a1a2e;}
+.project-card:hover{
+  transform:translateY(-10px);
+  border-color:#a855f7;
+  box-shadow:0 25px 60px rgba(168,85,247,.25);
+}
+
+.project-image{
+  height:185px;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+
+.project-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.05),rgba(12,10,24,.85));
+}
+
+.gradient-1{background:linear-gradient(135deg,#312e81,#06b6d4);}
+.gradient-2{background:linear-gradient(135deg,#7c2d12,#f97316);}
+.gradient-3{background:linear-gradient(135deg,#14532d,#84cc16);}
+.gradient-4{background:linear-gradient(135deg,#1e3a8a,#38bdf8);}
+.gradient-5{background:linear-gradient(135deg,#581c87,#ec4899);}
+.gradient-6{background:linear-gradient(135deg,#78350f,#facc15);}
+.gradient-7{background:linear-gradient(135deg,#172554,#7c3aed);}
+
+.project-content{
+  padding:28px;
+}
+
+.project-content h3{
+  font-size:24px;
+  margin-bottom:18px;
+  line-height:1.25;
+}
+
+.project-content p{
+  color:#c4c4cc;
+  line-height:1.7;
+  margin-bottom:18px;
+}
+
+.project-content strong{
+  color:#d946ef;
+  font-style:italic;
+}
+
+.project-content a{
+  display:inline-block;
+  margin-top:12px;
+  padding:14px 28px;
+  background:linear-gradient(90deg,#a855f7,#7c3aed);
+  color:white;
+  text-decoration:none;
+  border-radius:14px;
+  font-weight:800;
+  box-shadow:0 10px 25px rgba(168,85,247,.35);
+  transition:.3s;
+}
+
+.project-content a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 35px rgba(168,85,247,.5);
+}
+
+.github-more{
+  text-align:center;
+  margin-top:40px;
+  color:#c4c4cc;
+}
+
+.github-more a{
+  color:#a855f7;
+  font-weight:800;
+}
 
 /* TIMELINE */
 .timeline{
   position:relative;
-  max-width:800px;
-  margin:auto;
+  max-width:950px;
+  margin:0 auto;
+  padding-left:35px;
 }
 
 .timeline::before{
   content:"";
   position:absolute;
-  left:50%;
-  width:3px;
+  left:10px;
+  top:0;
+  width:4px;
   height:100%;
-  background:#8b5cf6;
+  background:linear-gradient(#8b5cf6,#06b6d4,#22c55e);
+  border-radius:20px;
 }
 
 .timeline-item{
-  width:50%;
-  padding:20px;
+  position:relative;
+  margin-bottom:35px;
 }
 
-.timeline-item:nth-child(odd){
-  text-align:right;
+.timeline-dot{
+  position:absolute;
+  left:-36px;
+  top:12px;
+  width:24px;
+  height:24px;
+  background:#8b5cf6;
+  border:5px solid #07070d;
+  border-radius:50%;
+  box-shadow:0 0 25px #8b5cf6;
 }
 
-.timeline-item:nth-child(even){
-  margin-left:50%;
+.timeline-content{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:24px;
+  padding:28px;
+  transition:.3s;
+  box-shadow:0 20px 45px rgba(0,0,0,.25);
 }
 
-.timeline-box{
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:15px;
+.timeline-content:hover{
+  transform:translateX(8px);
+  border-color:#8b5cf6;
+}
+
+.timeline-content span{
+  color:#8b5cf6;
+  font-weight:bold;
+}
+
+.timeline-content h3{
+  margin:8px 0;
+}
+
+/* EXPERIENCE */
+.exp-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+}
+
+.exp-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:22px;
+  padding:24px;
+  transition:.3s;
+}
+
+.exp-card:hover{
+  transform:translateY(-6px);
+  border-color:#06b6d4;
 }
 
 /* CONTACT */
-.contact a{
-  display:block;
-  margin:10px;
-  padding:12px;
-  background:#111;
-  border-radius:10px;
-  text-decoration:none;
-  color:white;
+.contact-box{
+  max-width:650px;
+  margin:auto;
 }
 
-.contact a:hover{background:#8b5cf6;}
+.contact-link{
+  display:block;
+  padding:18px 22px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  margin:14px 0;
+  border-radius:16px;
+  text-decoration:none;
+  color:white;
+  transition:.3s;
+}
 
-footer{text-align:center;padding:20px;color:#aaa;}
+.contact-link:hover{
+  background:linear-gradient(90deg,#8b5cf6,#06b6d4);
+  transform:translateX(8px);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:35px;
+  color:#a1a1aa;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{
+    flex-direction:column;
+    gap:12px;
+    padding:15px;
+  }
+
+  nav div{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
+  }
+
+  nav a{
+    font-size:13px;
+    margin:0 5px;
+  }
+
+  .hero h1{
+    font-size:46px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  section{
+    padding:70px 20px;
+  }
+
+  .projects-grid{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <nav>
-<strong>Walid Garrag</strong>
-<div>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#education">Formation</a>
-<a href="#contact">Contact</a>
-</div>
+  <strong>Walid Garrag</strong>
+  <div>
+    <a href="#about">À propos</a>
+    <a href="#skills">Compétences</a>
+    <a href="#projects">Projets</a>
+    <a href="#education">Formation</a>
+    <a href="#experience">Expérience</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <div class="hero">
-<h1>Walid <span>Garrag</span></h1>
-<p>Data • Software • Developer</p>
+  <h1>Walid <span>Garrag</span></h1>
+  <p>Data • Software • Fullstack Developer</p>
 </div>
 
-<!-- SKILLS -->
+<section id="about">
+  <h2>À propos</h2>
+  <div class="about-box">
+    <p>
+      Étudiant en informatique orienté data, développement logiciel et ingénierie logicielle.
+      Je m’intéresse au développement fullstack, à la data analyse, au machine learning,
+      au data engineering et à la création de solutions concrètes combinant applications,
+      bases de données, automatisation et visualisation.
+    </p>
+  </div>
+</section>
+
 <section id="skills">
-<h2>Compétences</h2>
+  <h2>MES COMPÉTENCES</h2>
 
-<div class="skills-grid">
+  <div class="skills-grid">
+    <div class="skill-card">💻 HTML / CSS</div>
+    <div class="skill-card">⚡ JavaScript / JSON</div>
+    <div class="skill-card">📦 jQuery</div>
+    <div class="skill-card">🐘 PHP</div>
+    <div class="skill-card">☕ Java / POO / MVC</div>
+    <div class="skill-card">🅰️ Angular</div>
 
-<div class="skill">
-<h3>Data Science & IA</h3>
-<p>Python, Pandas, Scikit-Learn</p>
-<div class="bar"><span style="width:85%"></span></div>
-</div>
+    <div class="skill-card">🐍 Python</div>
+    <div class="skill-card">📊 Pandas / NumPy</div>
+    <div class="skill-card">🧠 Scikit-learn</div>
+    <div class="skill-card">🤖 Streamlit Chatbot</div>
+    <div class="skill-card">📈 Power BI / KPI</div>
+    <div class="skill-card">📊 Excel / VBA</div>
 
-<div class="skill">
-<h3>Base de données</h3>
-<p>SQL, MySQL, PostgreSQL, Oracle</p>
-<div class="bar"><span style="width:90%"></span></div>
-</div>
+    <div class="skill-card">🗄️ SQL / MySQL</div>
+    <div class="skill-card">🐘 PostgreSQL</div>
+    <div class="skill-card">🏛️ Oracle / PL-SQL</div>
+    <div class="skill-card">🧱 NoSQL</div>
+    <div class="skill-card">🛠️ ETL / Data Engineering</div>
+    <div class="skill-card">📦 Data Modeling</div>
 
-<div class="skill">
-<h3>Développement</h3>
-<p>Java, PHP, JS, API REST</p>
-<div class="bar"><span style="width:80%"></span></div>
-</div>
+    <div class="skill-card">⚙️ C / C++</div>
+    <div class="skill-card">🎮 OpenGL</div>
+    <div class="skill-card">🌐 Client-Serveur / Sockets</div>
+    <div class="skill-card">🔗 API REST</div>
+    <div class="skill-card">📐 UML / OCL</div>
+    <div class="skill-card">🧪 JUnit / Mockito / JaCoCo</div>
 
-<div class="skill">
-<h3>BI & Analyse</h3>
-<p>Power BI, Excel, VBA</p>
-<div class="bar"><span style="width:88%"></span></div>
-</div>
-
-<div class="skill">
-<h3>Low Level</h3>
-<p>C / C++ / OpenGL</p>
-<div class="bar"><span style="width:75%"></span></div>
-</div>
-
-<div class="skill">
-<h3>Outils</h3>
-<p>Git, GitHub, Agile</p>
-<div class="bar"><span style="width:90%"></span></div>
-</div>
-
-</div>
+    <div class="skill-card">📦 Git / GitHub</div>
+    <div class="skill-card">🚀 GitLab / CI-CD</div>
+    <div class="skill-card">🔄 Agile / Scrum</div>
+    <div class="skill-card">📱 Mobile : bases</div>
+    <div class="skill-card">☁️ Cloud : Azure / Databricks notions</div>
+  </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
-<h2>Projets</h2>
+  <h2>Projets</h2>
 
-<div class="grid">
+  <div class="projects-grid">
 
-<div class="card">
-<h3>Projet Data</h3>
-<p>ETL + ML + chatbot</p>
-</div>
+    <div class="project-card">
+      <div class="project-image gradient-1"></div>
+      <div class="project-content">
+        <h3>Analyse & Prédiction de Risques Documentaires</h3>
+        <p>
+          Pipeline ETL avec PostgreSQL, modèle Random Forest, dashboard Power BI et chatbot Streamlit permettant d’interroger les données via SQL.
+        </p>
+        <p><strong>Tech stack:</strong> Python, Pandas, Scikit-learn, PostgreSQL, Streamlit, Power BI,Excel,PgAdmin</p>
+        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
 
-<div class="card">
-<h3>Graphes C++</h3>
-<p>Algorithmes avancés</p>
-</div>
+    <div class="project-card">
+      <div class="project-image gradient-2"></div>
+      <div class="project-content">
+        <h3>Gestionnaire de Réservations</h3>
+        <p>
+          Application web full-stack permettant de gérer les réservations d’un restaurant avec interface dynamique et logique métier côté serveur.
+        </p>
+        <p><strong>Tech stack:</strong> PHP, MySQL, HTML, CSS, JavaScript , XAMPP, PHPMYadmin</p>
+        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
 
-<div class="card">
-<h3>Pikachu OpenGL</h3>
-<p>Graphique 2D/3D</p>
-</div>
+    <div class="project-card">
+      <div class="project-image gradient-3"></div>
+      <div class="project-content">
+        <h3>Boutique de Fruits — Java MVC</h3>
+        <p>
+          Application Java développée avec NetBeans selon le pattern MVC, avec gestion de panier, modélisation UML et tests unitaires.
+        </p>
+        <p><strong>Tech stack:</strong> Java, MVC, JUnit, Mockito, UML, Git , Jacoco, Test fonctionnel , test d'integration</p>
+        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
 
-</div>
+    <div class="project-card">
+      <div class="project-image gradient-4"></div>
+      <div class="project-content">
+        <h3>Jeu Réseau “6 qui prend”</h3>
+        <p>
+          Application client-serveur en C avec sockets TCP, gestion multi-clients, threads et synchronisation des échanges réseau.
+        </p>
+        <p><strong>Tech stack:</strong> C, Sockets TCP, Threads, Client-Serveur,bash </p>
+        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
 
+    <div class="project-card">
+      <div class="project-image gradient-5"></div>
+      <div class="project-content">
+        <h3>Graphes en C++</h3>
+        <p>
+          Implémentation d’algorithmes sur les graphes : structures, parcours, logique algorithmique et résolution de problèmes.
+        </p>
+        <p><strong>Tech stack:</strong> C++,coloration graphes, Graphes, Algorithmique</p>
+        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-image gradient-6"></div>
+      <div class="project-content">
+        <h3>Pikachu OpenGL</h3>
+        <p>
+          Projet graphique utilisant OpenGL pour le rendu d’un personnage, avec manipulation des primitives et transformations graphiques.
+        </p>
+        <p><strong>Tech stack:</strong> OpenGL, C/C++, Graphisme 3D, Code:Block</p>
+        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-image gradient-7"></div>
+      <div class="project-content">
+        <h3>Transformée de Fourier</h3>
+        <p>
+          Projet orienté traitement du signal permettant d’étudier, transformer et analyser des signaux à l’aide de la transformée de Fourier.
+        </p>
+        <p><strong>Tech stack:</strong> Matlab</p>
+        <a href="https://github.com/walidgarrag" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="github-more">
+    Pour voir tous mes projets, veuillez visiter mon
+    <a href="https://github.com/walidgarrag" target="_blank">espace GitHub</a>.
+  </p>
 </section>
 
-<!-- TIMELINE -->
 <section id="education">
-<h2>Formation</h2>
+  <h2>Formation</h2>
 
-<div class="timeline">
+  <div class="timeline">
 
-<div class="timeline-item">
-<div class="timeline-box">
-<h3>Licence Informatique</h3>
-<p>2024 - 2026</p>
-</div>
-</div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span>2024 - 2026</span>
+        <h3>Licence Informatique</h3>
+        <p>Université Bourgogne Europe — Dijon</p>
+      </div>
+    </div>
 
-<div class="timeline-item">
-<div class="timeline-box">
-<h3>DEUG</h3>
-<p>2022 - 2024</p>
-</div>
-</div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span>2022 - 2024</span>
+        <h3>DEUG Sciences & Technologies</h3>
+        <p>Parcours Informatique et Électronique — Université Bourgogne Europe</p>
+      </div>
+    </div>
 
-<div class="timeline-item">
-<div class="timeline-box">
-<h3>Bac</h3>
-<p>2021</p>
-</div>
-</div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span>2021</span>
+        <h3>Baccalauréat Sciences Physiques</h3>
+        <p>Option Physique-Chimie — Lycée Abdelkhalek Torres, Maroc</p>
+      </div>
+    </div>
 
-</div>
-
+  </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-<h2>Contact</h2>
+<section id="experience">
+  <h2>Expérience professionnelle</h2>
 
-<a href="mailto:garragwalid8@gmail.com">📧 Email</a>
-<a href="https://github.com/walidgarrag">💻 GitHub</a>
-<a href="#">🔗 LinkedIn</a>
+  <div class="exp-grid">
 
+    <div class="exp-card">
+      <h3>Employé polyvalent — CROUS</h3>
+      <p><strong>Durée :</strong> 6 mois</p>
+      <p>Gestion de flux clients, organisation opérationnelle et travail en équipe.</p>
+    </div>
+
+    <div class="exp-card">
+      <h3>Équipier polyvalent — Restaurant</h3>
+      <p><strong>Durée :</strong> 4 mois</p>
+      <p>Adaptation rapide, gestion multitâche et travail sous pression.</p>
+    </div>
+
+    <div class="exp-card">
+      <h3>Bénévole — Croix-Rouge</h3>
+      <p><strong>Durée :</strong> 1 an</p>
+      <p>Coordination d’actions solidaires, travail collaboratif et engagement associatif.</p>
+    </div>
+
+  </div>
 </section>
 
-<footer>© 2026 Walid Garrag</footer>
+<section id="contact">
+  <h2>Contact</h2>
+
+  <div class="contact-box">
+    <a class="contact-link" href="mailto:garragwalid8@gmail.com">📧 Email : garragwalid8@gmail.com</a>
+    <a class="contact-link" href="https://github.com/walidgarrag" target="_blank">💻 GitHub : github.com/walidgarrag</a>
+    <a class="contact-link" href="https://www.linkedin.com" target="_blank">🔗 LinkedIn : Walid Garrag</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Walid Garrag — Portfolio Data, Software & Fullstack
+</footer>
 
 </body>
 </html>
