@@ -12,9 +12,12 @@ html{scroll-behavior:smooth;}
 body{
   font-family:'Segoe UI',Arial,sans-serif;
   background:
-    radial-gradient(circle at top left,#7c3aed35,transparent 35%),
-    radial-gradient(circle at bottom right,#06b6d435,transparent 35%),
-    #07070d;
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px),
+    radial-gradient(circle at top left,#2563eb35,transparent 35%),
+    radial-gradient(circle at bottom right,#7c3aed35,transparent 35%),
+    #050509;
+  background-size:40px 40px,40px 40px,auto,auto,auto;
   color:white;
 }
 
@@ -26,7 +29,7 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:18px 8%;
-  background:rgba(7,7,13,.75);
+  background:rgba(5,5,9,.75);
   backdrop-filter:blur(14px);
   z-index:1000;
   border-bottom:1px solid rgba(255,255,255,.08);
@@ -42,53 +45,126 @@ nav a{
   transition:.3s;
 }
 
-nav a:hover{color:#a78bfa;}
+nav a:hover{color:#38bdf8;}
 
 .hero{
   min-height:100vh;
-  display:flex;
-  justify-content:center;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
   align-items:center;
-  flex-direction:column;
-  text-align:center;
-  padding:0 20px;
+  gap:60px;
+  padding:130px 8% 80px;
 }
 
-.profile{
-  width:170px;
-  height:170px;
-  border-radius:50%;
-  object-fit:cover;
-  margin-bottom:25px;
-  border:4px solid #8b5cf6;
-  box-shadow:0 0 45px #8b5cf6;
+.hero-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:28px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  color:#c4c4cc;
+  font-weight:700;
+  font-size:14px;
+}
+
+.badge.green{
+  color:#34d399;
+  border-color:rgba(52,211,153,.45);
+  background:rgba(52,211,153,.08);
+  box-shadow:0 0 25px rgba(52,211,153,.15);
 }
 
 .hero h1{
   font-size:72px;
-  font-weight:900;
-  letter-spacing:-2px;
+  line-height:1.05;
+  font-weight:950;
+  letter-spacing:-3px;
+  margin-bottom:22px;
 }
 
-.hero span{
-  background:linear-gradient(90deg,#8b5cf6,#06b6d4,#22c55e);
+.hero h1 span{
+  background:linear-gradient(90deg,#6366f1,#3b82f6,#06b6d4);
   -webkit-background-clip:text;
   color:transparent;
 }
 
-.hero p{
-  color:#c4c4cc;
-  margin-top:15px;
+.hero .subtitle{
+  color:#22d3ee;
+  font-family:Consolas,monospace;
   font-size:20px;
+  margin-bottom:22px;
 }
 
-.hero::after{
-  content:"";
-  margin-top:35px;
-  width:160px;
-  height:4px;
-  border-radius:999px;
-  background:linear-gradient(90deg,#8b5cf6,#06b6d4,#22c55e);
+.hero .description{
+  max-width:650px;
+  color:#a1a1aa;
+  font-size:20px;
+  line-height:1.8;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-top:36px;
+}
+
+.btn-primary,.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 24px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:800;
+  transition:.3s;
+}
+
+.btn-primary{
+  background:linear-gradient(90deg,#6366f1,#8b5cf6);
+  color:white;
+  box-shadow:0 15px 35px rgba(99,102,241,.35);
+}
+
+.btn-secondary{
+  background:rgba(255,255,255,.07);
+  color:white;
+  border:1px solid rgba(255,255,255,.14);
+}
+
+.btn-primary:hover,.btn-secondary:hover{
+  transform:translateY(-4px);
+}
+
+.hero-photo{
+  display:flex;
+  justify-content:center;
+}
+
+.profile-frame{
+  width:330px;
+  height:330px;
+  border-radius:50%;
+  padding:7px;
+  background:linear-gradient(135deg,#6366f1,#06b6d4,#7c3aed);
+  box-shadow:0 0 70px rgba(99,102,241,.45);
+}
+
+.profile{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  border:8px solid #050509;
 }
 
 section{
@@ -133,9 +209,14 @@ section p{
   font-weight:800;
   font-size:17px;
   color:white;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
   box-shadow:0 15px 35px rgba(0,0,0,.35);
   transition:.35s;
 }
+
+.skill-card:nth-child(2n){background:linear-gradient(135deg,#06b6d4,#2563eb);}
+.skill-card:nth-child(3n){background:linear-gradient(135deg,#7c3aed,#06b6d4);}
+.skill-card:nth-child(5n){background:linear-gradient(135deg,#16a34a,#0891b2);}
 
 .skill-card::before{
   content:"";
@@ -149,36 +230,6 @@ section p{
 .skill-card:hover::before{transform:translateX(100%);}
 .skill-card:hover{transform:translateY(-10px) scale(1.03);}
 
-.skill-card:nth-child(1){background:linear-gradient(45deg,#ff6b6b,#f06595);}
-.skill-card:nth-child(2){background:linear-gradient(45deg,#fcc419,#f76707);}
-.skill-card:nth-child(3){background:linear-gradient(45deg,#339af0,#5c7cfa);}
-.skill-card:nth-child(4){background:linear-gradient(45deg,#845ef7,#5f3dc4);}
-.skill-card:nth-child(5){background:linear-gradient(45deg,#20c997,#099268);}
-.skill-card:nth-child(6){background:linear-gradient(45deg,#f06595,#d6336c);}
-.skill-card:nth-child(7){background:linear-gradient(45deg,#22b8cf,#1098ad);}
-.skill-card:nth-child(8){background:linear-gradient(45deg,#51cf66,#2f9e44);}
-.skill-card:nth-child(9){background:linear-gradient(45deg,#ff8787,#fa5252);}
-.skill-card:nth-child(10){background:linear-gradient(45deg,#cc5de8,#ae3ec9);}
-.skill-card:nth-child(11){background:linear-gradient(45deg,#12b886,#087f5b);}
-.skill-card:nth-child(12){background:linear-gradient(45deg,#ffa94d,#e8590c);}
-.skill-card:nth-child(13){background:linear-gradient(45deg,#868e96,#495057);}
-.skill-card:nth-child(14){background:linear-gradient(45deg,#7048e8,#3b5bdb);}
-.skill-card:nth-child(15){background:linear-gradient(45deg,#15aabf,#0b7285);}
-.skill-card:nth-child(16){background:linear-gradient(45deg,#fab005,#e67700);}
-.skill-card:nth-child(17){background:linear-gradient(45deg,#be4bdb,#862e9c);}
-.skill-card:nth-child(18){background:linear-gradient(45deg,#0ca678,#087f5b);}
-.skill-card:nth-child(19){background:linear-gradient(45deg,#495057,#212529);}
-.skill-card:nth-child(20){background:linear-gradient(45deg,#e8590c,#d9480f);}
-.skill-card:nth-child(21){background:linear-gradient(45deg,#1971c2,#1864ab);}
-.skill-card:nth-child(22){background:linear-gradient(45deg,#2f9e44,#087f5b);}
-.skill-card:nth-child(23){background:linear-gradient(45deg,#6741d9,#3b5bdb);}
-.skill-card:nth-child(24){background:linear-gradient(45deg,#c92a2a,#a61e4d);}
-.skill-card:nth-child(25){background:linear-gradient(45deg,#5c940d,#2b8a3e);}
-.skill-card:nth-child(26){background:linear-gradient(45deg,#364fc7,#1098ad);}
-.skill-card:nth-child(27){background:linear-gradient(45deg,#f08c00,#e67700);}
-.skill-card:nth-child(28){background:linear-gradient(45deg,#0b7285,#087f5b);}
-.skill-card:nth-child(29){background:linear-gradient(45deg,#4263eb,#7048e8);}
-
 .projects-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
@@ -186,8 +237,8 @@ section p{
 }
 
 .project-card{
-  background:rgba(22,18,45,.78);
-  border:1px solid rgba(167,139,250,.25);
+  background:rgba(10,10,24,.82);
+  border:1px solid rgba(96,165,250,.25);
   border-radius:28px;
   overflow:hidden;
   box-shadow:0 20px 45px rgba(0,0,0,.35);
@@ -196,8 +247,8 @@ section p{
 
 .project-card:hover{
   transform:translateY(-10px);
-  border-color:#a855f7;
-  box-shadow:0 25px 60px rgba(168,85,247,.25);
+  border-color:#38bdf8;
+  box-shadow:0 25px 60px rgba(56,189,248,.2);
 }
 
 .project-image{
@@ -222,9 +273,7 @@ section p{
 .gradient-6{background:linear-gradient(135deg,#78350f,#facc15);}
 .gradient-7{background:linear-gradient(135deg,#172554,#7c3aed);}
 
-.project-content{
-  padding:28px;
-}
+.project-content{padding:28px;}
 
 .project-content h3{
   font-size:24px;
@@ -239,7 +288,7 @@ section p{
 }
 
 .project-content strong{
-  color:#d946ef;
+  color:#38bdf8;
   font-style:italic;
 }
 
@@ -247,18 +296,18 @@ section p{
   display:inline-block;
   margin-top:12px;
   padding:14px 28px;
-  background:linear-gradient(90deg,#a855f7,#7c3aed);
+  background:linear-gradient(90deg,#2563eb,#7c3aed);
   color:white;
   text-decoration:none;
   border-radius:14px;
   font-weight:800;
-  box-shadow:0 10px 25px rgba(168,85,247,.35);
+  box-shadow:0 10px 25px rgba(37,99,235,.35);
   transition:.3s;
 }
 
 .project-content a:hover{
   transform:translateY(-3px);
-  box-shadow:0 15px 35px rgba(168,85,247,.5);
+  box-shadow:0 15px 35px rgba(37,99,235,.5);
 }
 
 .github-more{
@@ -268,7 +317,7 @@ section p{
 }
 
 .github-more a{
-  color:#a855f7;
+  color:#38bdf8;
   font-weight:800;
 }
 
@@ -286,7 +335,7 @@ section p{
   top:0;
   width:4px;
   height:100%;
-  background:linear-gradient(#8b5cf6,#06b6d4,#22c55e);
+  background:linear-gradient(#2563eb,#06b6d4,#7c3aed);
   border-radius:20px;
 }
 
@@ -301,10 +350,10 @@ section p{
   top:12px;
   width:24px;
   height:24px;
-  background:#8b5cf6;
-  border:5px solid #07070d;
+  background:#2563eb;
+  border:5px solid #050509;
   border-radius:50%;
-  box-shadow:0 0 25px #8b5cf6;
+  box-shadow:0 0 25px #2563eb;
 }
 
 .timeline-content{
@@ -318,17 +367,15 @@ section p{
 
 .timeline-content:hover{
   transform:translateX(8px);
-  border-color:#8b5cf6;
+  border-color:#38bdf8;
 }
 
 .timeline-content span{
-  color:#8b5cf6;
+  color:#38bdf8;
   font-weight:bold;
 }
 
-.timeline-content h3{
-  margin:8px 0;
-}
+.timeline-content h3{margin:8px 0;}
 
 .exp-grid{
   display:grid;
@@ -367,7 +414,7 @@ section p{
 }
 
 .contact-link:hover{
-  background:linear-gradient(90deg,#8b5cf6,#06b6d4);
+  background:linear-gradient(90deg,#2563eb,#7c3aed);
   transform:translateX(8px);
 }
 
@@ -376,6 +423,26 @@ footer{
   padding:35px;
   color:#a1a1aa;
   border-top:1px solid rgba(255,255,255,.08);
+}
+
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero-badges,.hero-actions{
+    justify-content:center;
+  }
+
+  .hero h1{
+    font-size:50px;
+  }
+
+  .profile-frame{
+    width:230px;
+    height:230px;
+  }
 }
 
 @media(max-width:768px){
@@ -395,19 +462,6 @@ footer{
   nav a{
     font-size:13px;
     margin:0 5px;
-  }
-
-  .hero h1{
-    font-size:46px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .profile{
-    width:135px;
-    height:135px;
   }
 
   section{
@@ -435,11 +489,35 @@ footer{
   </div>
 </nav>
 
-<div class="hero">
-  <img src="photo.png" alt="Photo de Walid Garrag" class="profile">
-  <h1>Walid <span>Garrag</span></h1>
-  <p>Data • Software • Fullstack Developer</p>
-</div>
+<header class="hero">
+  <div class="hero-text">
+    <div class="hero-badges">
+      <span class="badge green">● Disponible Alternance · Sept. 2026</span>
+      <span class="badge">📍 Mobile · France entière</span>
+    </div>
+
+<h1>Fullstack & Software Developer<br><span>Data • AI • Engineering</span></h1>
+
+<p class="subtitle">Futur étudiant en Master Bases de Données & Intelligence Artificielle</p>
+
+<p class="description">
+  Étudiant en informatique à l’Université de Bourgogne, futur étudiant en Master Bases de Données & Intelligence Artificielle,
+  je développe des applications fullstack et conçois des solutions data allant du développement logiciel
+  à l’analyse et au traitement de données. Mon objectif est de construire des systèmes performants
+  combinant backend, bases de données, data engineering et intelligence artificielle.
+</p>
+
+    <div class="hero-actions">
+      <a class="btn-primary" href="#projects">🚀 Voir mes projets</a
+    </div>
+  </div>
+
+  <div class="hero-photo">
+    <div class="profile-frame">
+      <img src="photo.png" alt="Photo de Walid Garrag" class="profile">
+    </div>
+  </div>
+</header>
 
 <section id="about">
   <h2>À propos</h2>
@@ -463,28 +541,24 @@ footer{
     <div class="skill-card">🐘 PHP</div>
     <div class="skill-card">☕ Java / POO / MVC</div>
     <div class="skill-card">🅰️ Angular</div>
-
     <div class="skill-card">🐍 Python</div>
     <div class="skill-card">📊 Pandas / NumPy</div>
     <div class="skill-card">🧠 Scikit-learn</div>
     <div class="skill-card">🤖 Streamlit Chatbot</div>
     <div class="skill-card">📈 Power BI / KPI</div>
     <div class="skill-card">📊 Excel / VBA</div>
-
     <div class="skill-card">🗄️ SQL / MySQL</div>
     <div class="skill-card">🐘 PostgreSQL</div>
     <div class="skill-card">🏛️ Oracle / PL-SQL</div>
     <div class="skill-card">🧱 NoSQL</div>
     <div class="skill-card">🛠️ ETL / Data Engineering</div>
     <div class="skill-card">📦 Data Modeling</div>
-
     <div class="skill-card">⚙️ C / C++</div>
     <div class="skill-card">🎮 OpenGL</div>
     <div class="skill-card">🌐 Client-Serveur / Sockets</div>
     <div class="skill-card">🔗 API REST</div>
     <div class="skill-card">📐 UML / OCL</div>
     <div class="skill-card">🧪 JUnit / Mockito / JaCoCo</div>
-
     <div class="skill-card">📦 Git / GitHub</div>
     <div class="skill-card">🚀 GitLab / CI-CD</div>
     <div class="skill-card">🔄 Agile / Scrum</div>
@@ -502,9 +576,7 @@ footer{
       <div class="project-image gradient-1"></div>
       <div class="project-content">
         <h3>Projet IA — Assistant de recherche documentaire</h3>
-        <p>
-          Assistant intelligent orienté recherche documentaire, avec traitement de données, analyse et interaction utilisateur.
-        </p>
+        <p>Assistant intelligent orienté recherche documentaire, avec traitement de données, analyse et interaction utilisateur.</p>
         <p><strong>Tech stack:</strong> Python, IA, traitement de données</p>
         <a href="https://github.com/walidgarrag/-Projet-IA-Assistant-de-recherche-documentaire" target="_blank">💻 GitHub</a>
       </div>
@@ -514,9 +586,7 @@ footer{
       <div class="project-image gradient-2"></div>
       <div class="project-content">
         <h3>Gestionnaire de Réservations</h3>
-        <p>
-          Application web full-stack permettant de gérer les réservations d’un restaurant avec interface dynamique et logique métier côté serveur.
-        </p>
+        <p>Application web full-stack permettant de gérer les réservations d’un restaurant avec interface dynamique et logique métier côté serveur.</p>
         <p><strong>Tech stack:</strong> PHP, MySQL, HTML, CSS, JavaScript</p>
         <a href="https://github.com/walidgarrag/Gestionnaire-de-reservation-d-un-restaurant" target="_blank">💻 GitHub</a>
       </div>
@@ -526,9 +596,7 @@ footer{
       <div class="project-image gradient-3"></div>
       <div class="project-content">
         <h3>Boutique de Fruits — Java MVC</h3>
-        <p>
-          Application Java développée avec NetBeans selon le pattern MVC, avec gestion de panier, modélisation UML et tests unitaires.
-        </p>
+        <p>Application Java développée avec NetBeans selon le pattern MVC, avec gestion de panier, modélisation UML et tests unitaires.</p>
         <p><strong>Tech stack:</strong> Java, MVC, JUnit, Mockito, UML, Git</p>
         <a href="https://github.com/walidgarrag/Boutique-de-Fruit-MVC" target="_blank">💻 GitHub</a>
       </div>
@@ -538,9 +606,7 @@ footer{
       <div class="project-image gradient-4"></div>
       <div class="project-content">
         <h3>Jeu Réseau “6 Qui Prend”</h3>
-        <p>
-          Application client-serveur en C avec sockets TCP, gestion multi-clients, threads et synchronisation des échanges réseau.
-        </p>
+        <p>Application client-serveur en C avec sockets TCP, gestion multi-clients, threads et synchronisation des échanges réseau.</p>
         <p><strong>Tech stack:</strong> C, Sockets TCP, Threads, Client-Serveur</p>
         <a href="https://github.com/walidgarrag/Jeu-6-Qui-Prend" target="_blank">💻 GitHub</a>
       </div>
@@ -550,9 +616,7 @@ footer{
       <div class="project-image gradient-5"></div>
       <div class="project-content">
         <h3>Algorithmes de Graphes</h3>
-        <p>
-          Implémentation d’algorithmes sur les graphes : structures, parcours, logique algorithmique et résolution de problèmes.
-        </p>
+        <p>Implémentation d’algorithmes sur les graphes : structures, parcours, logique algorithmique et résolution de problèmes.</p>
         <p><strong>Tech stack:</strong> C++, STL, Graphes, Algorithmique</p>
         <a href="https://github.com/walidgarrag/Algorithme-des-Graphes" target="_blank">💻 GitHub</a>
       </div>
@@ -562,9 +626,7 @@ footer{
       <div class="project-image gradient-6"></div>
       <div class="project-content">
         <h3>Pikachu 3D OpenGL</h3>
-        <p>
-          Projet graphique utilisant OpenGL pour le rendu d’un personnage, avec manipulation des primitives et transformations graphiques.
-        </p>
+        <p>Projet graphique utilisant OpenGL pour le rendu d’un personnage, avec manipulation des primitives et transformations graphiques.</p>
         <p><strong>Tech stack:</strong> OpenGL, C/C++, Graphisme 2D/3D</p>
         <a href="https://github.com/walidgarrag/Pikatchu-3D-openGl" target="_blank">💻 GitHub</a>
       </div>
@@ -574,9 +636,7 @@ footer{
       <div class="project-image gradient-7"></div>
       <div class="project-content">
         <h3>Transformée de Fourier</h3>
-        <p>
-          Projet orienté traitement du signal permettant d’étudier, transformer et analyser des signaux à l’aide de la transformée de Fourier.
-        </p>
+        <p>Projet orienté traitement du signal permettant d’étudier, transformer et analyser des signaux à l’aide de la transformée de Fourier.</p>
         <p><strong>Tech stack:</strong> Python, NumPy, Signal Processing</p>
         <a href="https://github.com/walidgarrag/Transform-e-de-Fourier" target="_blank">💻 GitHub</a>
       </div>
@@ -594,7 +654,6 @@ footer{
   <h2>Formation</h2>
 
   <div class="timeline">
-
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-content">
@@ -621,7 +680,6 @@ footer{
         <p>Option Physique-Chimie — Lycée Abdelkhalek Torres, Maroc</p>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -629,7 +687,6 @@ footer{
   <h2>Expérience professionnelle</h2>
 
   <div class="exp-grid">
-
     <div class="exp-card">
       <h3>Employé polyvalent — CROUS</h3>
       <p><strong>Durée :</strong> 6 mois</p>
@@ -647,7 +704,6 @@ footer{
       <p><strong>Durée :</strong> 1 an</p>
       <p>Coordination d’actions solidaires, travail collaboratif et engagement associatif.</p>
     </div>
-
   </div>
 </section>
 
@@ -662,7 +718,7 @@ footer{
 </section>
 
 <footer>
-  © 2026 Walid Garrag — Portfolio Data, Software & Fullstack
+  © 2026 Walid Garrag — Portfolio Data Engineer & IA Specialist
 </footer>
 
 </body>
